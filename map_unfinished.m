@@ -5,7 +5,7 @@ function map
     MS = 'MakerSize';
     button = 1;
     
-    load 
+    imread(); 
     image(X);
     
     while button == 1
