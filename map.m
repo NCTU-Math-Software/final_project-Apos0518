@@ -4,7 +4,7 @@ function map
     hx = []; % 將tx分割成更多的點之後，以此儲存
     hy = []; % 將ty分割成更多的點之後，以此儲存
     C = -1; % 計算次數的初值
-    figure('outerposition',get(0,'screensize')) % 視窗大小
+    figure('name', 'map', 'outerposition', get(0, 'screensize')) % 視窗大小
     MS = 'MarkerSize'; % 線段寬度
     button = 1; % 用以進入迴圈
     
@@ -14,12 +14,13 @@ function map
     
     while button == 1 % 按下滑鼠左鍵時，得以繼續點選
         [x, y, button] = ginput(1); % 存取滑鼠的點選
+        plot(x, y, 'o', MS, 3) % 畫出點擊的點
         C = C+1; % 計算滑鼠點選左鍵的次數
         tx = [tx x]; % 儲存x座標
         ty = [ty y]; % 儲存y座標
     end
     
-    % 若左鍵點選的次數低於一次，則中止程式
+    % 若左鍵點選的次數低於兩次，則中止程式
     if (C == 0) || (C == 1)
         close % 關閉圖片
         return;
@@ -40,13 +41,22 @@ function map
         hy = [hy ys]; % 儲存ys
 
         t = 1:(9*(C-2) + 10); % hx及hy各自存取的點的個數
-
-        px = polyfit(t, hx, 5); % 為hx內的點找出多項式
-        py = polyfit(t, hy, 5); % 為hy內的點找出多項式
-
+        
+        % 提高路線的精準度
+        if C < 5
+            px = polyfit(t, hx, 5); % 為hx內的點找出多項式
+            py = polyfit(t, hy, 5); % 為hy內的點找出多項式
+        elseif (C >= 5) && (C < 10)
+            px = polyfit(t, hx, 7); % 為hx內的點找出多項式
+            py = polyfit(t, hy, 7); % 為hy內的點找出多項式
+        else
+            px = polyfit(t, hx, 10); % 為hx內的點找出多項式
+            py = polyfit(t, hy, 10); % 為hy內的點找出多項式
+        end
+            
         s = linspace(1, (9*(C-2) + 10), 100); % 分割t
         fx = polyval(px, s); % 解方程式px 
         fy = polyval(py, s); % 解方程式py
-        plot(fx, fy,'-', MS, 2) % 作圖
+        plot(fx, fy,'.', MS, 10) % 作圖
     end
 end
