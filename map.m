@@ -62,6 +62,6 @@ function map
         s = linspace(1, (9*(C-2) + 10), 100); % 分割t
         fx = polyval(px, s); % 解方程式px 
         fy = polyval(py, s); % 解方程式py
-        plot(fx, fy,'.', MS, 10) % 作圖
+        plot(fx, fy,'k', MS, 10) % 作圖
     end
 end
