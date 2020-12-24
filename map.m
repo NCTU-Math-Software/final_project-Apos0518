@@ -51,9 +51,12 @@ function map
         elseif (C >= 5) && (C < 10)
             px = polyfit(t, hx, 7); % 為hx內的點找出多項式
             py = polyfit(t, hy, 7); % 為hy內的點找出多項式
+        elseif (C >= 10) && (C < 15)
+            px = polyfit(t, hx, 13); % 為hx內的點找出多項式
+            py = polyfit(t, hy, 13); % 為hy內的點找出多項式
         else
-            px = polyfit(t, hx, 10); % 為hx內的點找出多項式
-            py = polyfit(t, hy, 10); % 為hy內的點找出多項式
+            px = polyfit(t, hx, 17); % 為hx內的點找出多項式
+            py = polyfit(t, hy, 17); % 為hy內的點找出多項式
         end
             
         s = linspace(1, (9*(C-2) + 10), 100); % 分割t
