@@ -1,3 +1,5 @@
+% Input: None
+% Output: 顯示圖片，並且在使用者點選行經的節點之後顯示路徑
 function map
     tx = []; % 作為儲存x座標的向量
     ty = []; % 作為儲存y座標的向量
@@ -14,7 +16,7 @@ function map
     
     while button == 1 % 按下滑鼠左鍵時，得以繼續點選
         [x, y, button] = ginput(1); % 存取滑鼠的點選
-        plot(x, y, 'o', MS, 3) % 畫出點擊的點
+        plot(x, y, '.', MS, 3) % 畫出點擊的點
         C = C+1; % 計算滑鼠點選左鍵的次數
         tx = [tx x]; % 儲存x座標
         ty = [ty y]; % 儲存y座標
