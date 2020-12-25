@@ -6,7 +6,7 @@
 
 ## 2.開啟方式:
  將主程式及地圖下載至matlab的資料夾中，並開啟主程式
- 之後(i)點擊run 或是 (ii)於command window中輸入"map"
+ 之後 (i)點擊run 或是 (ii)於command window中輸入"map"
  
 ## 3.使用說明:
  在想要經過的路徑上，以左鍵點擊起點、想要經過的點(i)、轉角處(ii)、終點
