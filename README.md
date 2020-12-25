@@ -27,7 +27,7 @@
  3. 以ginput(1)的迴圈，存取使用者用滑鼠左鍵點擊的每個點
  4. 把這些點儲存到向量tx ty裡
  5. 用linspace將tx ty平均拆解成更多的點，並儲存在向量hx hy裡
- 6. 用polyfit找出接近這些(t, hx) (t, hy)的多項式
- 7. 用polyval找出這個多項式的解
- 8. 用linspace將這些解拆解成更多的點，並儲存在向量s裡
- 9. 用plot畫出s對應到的hx hy
+ 6. 用polyfit找出接近這些(t, hx) (t, hy)的多項式 (t與hx hy有同樣數量的elements)
+ 7. 用linspace將這些t拆解成更多的點，並儲存在向量s裡
+ 7. 用polyval找出將s代入多項式後，對應到的fx fy
+ 9. 用plot畫出fx fy對應的線段
